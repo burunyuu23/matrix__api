@@ -1,19 +1,22 @@
 package com.example.matrixapi.objects.matrix;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
 public class Matrix {
-    private double[][] matrix;
-    private double[] x;
+    private final double[][] matrix;
+    private double[] variables;
     private int rows;
     private int columns;
 
-    public Matrix(double[][] matrix) {
+    @JsonCreator
+    public Matrix(@JsonProperty("matrix") double[][] matrix) {
         this.matrix = matrix;
         this.rows = matrix.length;
         this.columns = matrix[0].length;
-        this.x = new double[rows];
+        this.variables = new double[rows];
     }
 
     public void gaussianElimination() {
@@ -32,14 +35,14 @@ public class Matrix {
             }
         }
 
-        x[rows - 1] = matrix[rows - 1][columns - 1]/matrix[rows - 1][rows - 1];
+        variables[rows - 1] = matrix[rows - 1][columns - 1]/matrix[rows - 1][rows - 1];
 
         for (int i = rows - 2; i >= 0; i--) {
             double temp = 0;
             for (int j = i+1; j < rows; j++) {
-                temp += matrix[i][j]*x[j];
+                temp += matrix[i][j]* variables[j];
             }
-            x[i] = 1/matrix[i][i]*(matrix[i][columns - 1] - temp);
+            variables[i] = 1/matrix[i][i]*(matrix[i][columns - 1] - temp);
         }
     }
 
@@ -63,9 +66,9 @@ public class Matrix {
             System.out.println();
         }
     }
-    public void printX() {
+    public void printVariables() {
         for (int i = 0; i < rows; i++) {
-            System.out.print(x[i] + " ");
+            System.out.print(variables[i] + " ");
         }
     }
 }

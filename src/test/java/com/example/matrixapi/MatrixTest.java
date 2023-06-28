@@ -26,9 +26,9 @@ public class MatrixTest {
         matrix.printMatrix();
 
         System.out.println("\nX:");
-        matrix.printX();
+        matrix.printVariables();
 
-        assertEquals("[-1.0, 5.0, -3.0, 2.0]", Arrays.toString(matrix.getX()));
+        assertEquals("[-1.0, 5.0, -3.0, 2.0]", Arrays.toString(matrix.getVariables()));
     }
 
     @Test
@@ -52,9 +52,10 @@ public class MatrixTest {
         matrix.printMatrix();
 
         System.out.println("\nX:");
-        matrix.printX();
+        matrix.printVariables();
 
-        // Силы тока по очереди. Самое первое значение это сила тока на проводах, которые мы подключаем к крайним узлам
-        assertEquals("[0.07220348922445388, 0.07220348922445388, 0.06677906465327664, 0.005424424571177247, 0.0014660606949127692, 0.001759272833895323, 0.0021990910423691544]", Arrays.toString(matrix.getX()));
+        // Силы тока по очереди.
+        // Самое первое значение это сила тока на проводах, которые мы подключаем к крайним узлам.
+        assertEquals("[0.07220348922445388, 0.07220348922445388, 0.06677906465327664, 0.005424424571177247, 0.0014660606949127692, 0.001759272833895323, 0.0021990910423691544]", Arrays.toString(matrix.getVariables()));
     }
 }
