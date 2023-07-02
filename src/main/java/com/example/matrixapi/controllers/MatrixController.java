@@ -1,7 +1,7 @@
 package com.example.matrixapi.controllers;
 
-import com.example.matrixapi.dto.GaussMethodRequestDTO;
-import com.example.matrixapi.dto.GaussMethodResponseDTO;
+import com.example.matrixapi.dto.requests.GaussMethodRequestDTO;
+import com.example.matrixapi.dto.responses.GaussMethodResponseDTO;
 import com.example.matrixapi.services.MatrixService;
 import com.google.gson.Gson;
 import io.swagger.v3.oas.annotations.Operation;
