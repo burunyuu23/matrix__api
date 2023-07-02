@@ -16,7 +16,7 @@ public class Matrix {
         this.matrix = matrix;
         this.rows = matrix.length;
         this.columns = matrix[0].length;
-        this.variables = new double[rows];
+        this.variables = new double[columns - 1];
     }
 
     public void gaussianElimination() {
